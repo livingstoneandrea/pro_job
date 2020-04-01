@@ -1,0 +1,247 @@
+{% extends 'job_app/base.html' %}
+{% load static %}
+{% block main_site %}
+<style>
+  #application{
+      padding:25px 30px 30px 30px;
+      background-color:#fafafa;
+      max-width:550px;
+  }
+  #application .heading{
+      float:left;
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:15px;
+      margin-top:0;
+  }
+  div.required-fields{
+      float:right;
+      font-size:12px;
+      color:#000;
+  }
+  .main_fields .asterick{
+      color:#DB2A3A;
+  }
+  div.field{
+      clear:both;
+      overflow:auto;
+      line-height:30px;
+      margin-bottom:15px;
+  }
+  div.field label{
+      float:left;
+      width:120px;
+      text-align:right;
+      margin-right:10px;
+  }
+  div.field label .asterick{
+      font-size:18px;
+      line-heigth:18px;
+  }
+  input[type='text']{
+      margin:0;
+      padding:5px;
+      border:solid 1px #DDD;
+      font-size:13px;
+      border-radius:3px;
+      width:300px;
+  }
+  #main hr{
+    
+      padding:0;
+      border:none;
+      height:1px;
+      background-color:#DADADA;
+      margin:25px 0;
+  }
+  #main_fields fieldset{
+      position:relative;
+      padding:0;
+      margin:0;
+      border:none;
+  }
+  .submit_buttons{
+      text-align:right;
+  }
+  #submit_app{
+      text-transform:uppercase;
+      font-size:12px;
+      font-weight:700;
+      color:#fff;
+      text-align:center;
+      text-shadow:0px 1px 1px rgba(0,0,0,0.4);
+      cursor:pointer;
+      border:none;
+      padding:7px 16px;
+      margin-top:10px;
+  }
+  .button{
+      background-color:#005189;
+      -webkit-appearance:none;
+  }
+
+  
+</style>
+  <section class="grid-12 layout-center">
+    <div class="grid-parent v-h_center vert-alignC max_width">
+      <section class="grid-parent">
+        <article class="grid-12 layout-center">
+          <div class="" id="" style="border-bottom: 2px solid #a3a3a3;height: 34px;line-height: normal;padding: 0 0 0 18px ;box-sizing: border-box;">
+            <span class="" style="background-position: top right;background-repeat: no-repeat;background-color: transparent;white-space:nowrap;padding: 5px 2px 4px 0;display: inline-block;vertical-align: bottom;">
+              <span class="" style="background-repeat: no-repeat;background-position: left top;padding: 6px 2px 6px 22px;"></span>
+               <span class="">Candidate Profile</span>
+            </span>
+            <span class="">
+              <span class=""></span>
+              <span class="">Build client Details</span> 
+            </span>
+          </div>
+        </article>
+        <article class="grid-12">
+          <div class="">
+             <span class=""><span class="">My Profile</span></span>
+             <span class=""><span class="">Personal Setting</span></span>
+          </div>
+        </article>
+      </section>
+      <section class="grid-12 box_vertPad2">
+        <article class="grid-parent layout-center v-h_center">
+          <div class="grid-2" style="height: 43px; float: left;text-align: center;" id="tab-sec1">
+             <span class=" " style="text-align: center;font-size: 0.75em;">
+                <span class="" style="font-weight: bold;height: 48px; width: 48px;display: inline-block;text-align: center;padding: 16px 16px; background-color: #c7b198; border:1px solid #f1f1f1;color:#06314d;border-radius:50%;margin:auto;cursor:pointer;">1</span>
+                <div class="" style="text-align: center;white-space: nowrap;color: #333;padding: 5px 15px 0 15px; display: block;">Personal data</div>
+             </span>
+          </div>
+          <div class="grid-2" style="height: 43px; float: left;text-align: center;">
+             <span class=" " style="text-align: center;font-size: 0.75em;">
+                <span class="" style="font-weight: bold;height: 48px; width: 48px;display: inline-block;text-align: center;padding: 16px 16px; background-color: #38B39E; border:solid 3px #f1f1f1;color:#06314d;margin:auto;cursor:pointer;">2</span>
+                <div class="" style="text-align: center;white-space: nowrap;color: #333;padding: 5px 15px 0 15px; display: block;">Edit personal info</div>
+             </span>
+          </div>
+        </article>
+      </section>
+      <section class="grid-12">
+       <div class="vert-alignC ">
+          {% comment %} <article class="grid-12" id="tab-1">
+             <article class="grid-12 grid-parent">
+              <div class="grid-12"> <p>user details is displayed here</p></div>
+              <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Personal information</span>| <a href="" class="text_c-white" id="personal_info">Edit</a></p>
+                  <ul>
+                  <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">First name </span> <span>{{user.first_name}} {{user.last_name}}</span></li>
+                  <li class="grid-12"><span class="text_7" style="margin-right:4em">Last name </span><span>{{user.last_name}}</span> </li>
+                  <li class="grid-12"><span class="text_7" style="margin-right:4em">Email address </span><span>{{user.email}}</span></li>
+                  <li class="grid-12"><span class="text_7" style="margin-right:4em">Phone contact </span><span>{{user.first_name}}</span> </li>
+                  <li class="grid-12"><span class="text_7" style="margin-right:4em">First name </span><span>{{user.first_name}}</span> </li>
+                  
+                  </ul>
+                </article>
+              </div> 
+            </article>  
+          <article> {% endcomment %}
+          <article class="bg-light_blue box_margBot2" id="tab-2" style="width:65%;">
+            <form method="" action="">
+             {% csrf_token %}
+              <div id="main_fields grid-12">
+                <section class="grid-parent box_vertPad1 box_margBot2">
+                  <h2 class="heading grid-6" >Apply to work abroad</h2>
+                  <div class="required-fileds grid-4" >
+                    <span class="asterick">*</span>
+                    Required
+                  </div>
+                </section>  
+                
+                <section class="box_vertPad2" id="edu-sec">
+                  <article class="">
+                    <h3>Education details</h3>
+                    <fieldset>
+                      {% for field in edu_form %}
+                        
+                        <article class="grid-11 box_vertPad1 field">
+                            {{field.errors}}
+                          <label class="{{field.id_for_label}}" for="">{{field.label}} <span class="">*</span></label>
+                          {{field}}
+                          {% if field.help_text %}
+                            <p>{{field.help_text|safe}}</p>
+                          {% endif %}
+                        </article>
+                      
+                      {% endfor %}
+                    </fieldset>
+                  </article>
+                </section>
+                <hr>
+                <section class="box_vertPad2" id="edu-sec">
+                  <article class="">
+                    <h4>Employment information</h4>
+                    <fieldset>
+                      {% for field in emp_form  %}
+                        
+                        <article class="grid-11 box_vertPad1 field">
+                            {{field.errors}}
+                          <label class="{{field.id_for_label}}" for="">{{field.label}} <span class="">*</span></label>
+                          {{field}}
+                          {% if field.help_text %}
+                            <p>{{field.help_text|safe}}</p>
+                          {% endif %}
+                        </article>
+                      
+                      {% endfor %}
+                    </fieldset>
+                  </article>
+                </section>
+                <hr>
+                <section class="box_vertPad1" id="edu-sec">
+                  <article class="">
+                    <h4>Preferred working location</h4>
+                    <fieldset>
+                      {% for field in pref_form  %}
+                        
+                        <article class="grid-11 box_vertPad1 field">
+                            {{field.errors}}
+                          <label class="{{field.id_for_label}}" for="">{{field.label}} <span class="">*</span></label>
+                          {{field}}
+                          {% if field.help_text %}
+                            <p>{{field.help_text|safe}}</p>
+                          {% endif %}
+                        </article>
+                      
+                      {% endfor %}
+                    </fieldset>
+                  </article>
+                </section>
+                <hr>
+                <section class="box_vertPad2" id="edu-sec">
+                  <article class="">
+                    <h4>Upload your cv/resume or any other relevant file</h4>
+                    <fieldset>
+                      {% for field in file_upload_form  %}
+                        
+                        <article class="grid-11  field">
+                            {{field.errors}}
+                          <label class="{{field.id_for_label}}" for="">{{field.label}} <span class="">*</span></label>
+                          {{field}}
+                          {% if field.help_text %}
+                            <p>{{field.help_text|safe}}</p>
+                          {% endif %}
+                        </article>
+                      {% endfor %}
+                    </fieldset>
+                  </article>
+                </section>
+                <hr>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="button" value="submit Application">
+                </section>
+              
+              </div>
+            </form>
+        <article>
+       </div>
+      </section>
+    </div>
+  </section>
+{% endblock main_site %}

@@ -1,0 +1,506 @@
+{% extends 'job_app/base.html' %}
+{% load static %}
+
+{%block main_site%}
+
+
+ <section class="grid-12 layout-center">
+    <div class="grid-parent v-h_center vert-alignC max_width">
+      <section class="grid-parent">
+        <article class="grid-12 layout-center">
+          <div class="" id="" style="border-bottom: 2px solid #a3a3a3;height: 34px;line-height: normal;padding: 0 0 0 18px ;box-sizing: border-box;">
+            <span class="" style="background-position: top right;background-repeat: no-repeat;background-color: transparent;white-space:nowrap;padding: 5px 2px 4px 0;display: inline-block;vertical-align: bottom; cursor: pointer;">
+              <span class="" style="background-repeat: no-repeat;background-position: left top;padding: 6px 2px 6px 22px;"></span>
+               <span class="text_7">Candidate Profile</span>
+            </span>
+            <span class="">
+              <span class=""></span>
+              <span class="">Build client Details</span>
+            </span>
+          </div>
+        </article>
+        <article class="grid-12">
+          <div class="">
+             <span class=""><span class="">My Profile</span></span>
+             <span class=""><span class="">Personal Setting</span></span>
+          </div>
+        </article>
+      </section>
+
+   <div class="grid-12 max_width">
+     <article class="grid-parent box_topPad5">
+       <section class="grid-12 grid-parent">
+          <div class="grid-6">
+            <a href="">{{user.username}} </a><span>signed in</span>
+            |
+            <a href="">Account options</a>
+          </div>
+          <div class="grid-6">
+            | <a href="{%url 'logout'%}">sign out</a>
+          </div>
+       
+       </section>
+       <section class="grid-12 box_topMargin-1">
+          <article class="grid-12 grid-parent max_width box_vertPad2 bg-light-gr ">
+             <div class="grid-6">
+              <h3>General Profile</h3>
+             </div>
+             <div class="grid-6">
+               <p>showing step <span>1</span> of<span> 7</span></p>
+             </div>
+             <article class="grid-12">
+               <section class="grid-parent">
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="personal-details">personal info</a>
+                 </div>
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="edu-details">Education</a>
+                 </div>
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="emp-details">Employment info</a>
+                 </div>
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="pref">preference</a>
+                 </div>
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="fele-attach">File attachment</a>
+                 </div>
+                 <div class="grid-2 box_vertPad2">
+                  <a href="javascript:void(0)" id="review">Review and Edit</a>
+                 </div>
+               </section>      
+             </article>
+          </article>
+       </section>
+       <section class="box_vertPad2 grid-12 layout-center" id="edu-sec">
+            <article class="grid-6 v-h_center bg-light_blue tab active" style="border-radius:4px;" id="tab-0">
+                <h3 class="text_c-white">personal information</h3>
+              
+               <form method="post" action="{% url 'add_userInfo' user.id %}">
+               {% csrf_token %}
+                <fieldset>
+              
+                  {% for field in profile_form %}    
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                      {{field}}
+                      {% if field.help_text %}
+                        <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                    </article>
+                      
+                  {% endfor %}
+                </fieldset>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="submit" value="save">
+                  <button class="button next_tabBtn" style="padding:4px;background:#38B39E;color:#f1f1f1; border-radius:50%;width:48px;height:48px; margin-right:8px;"><span class="fas fa-angle-right"></span></button>
+                </section>
+               </form> 
+            </article>
+            <article class="grid-6 v-h_center bg-light_blue tab" style="border-radius:4px;" id="tab-1">
+                <h3 class="text_c-white">Education details</h3>
+               <form method="POST" action="{%url 'add_eduInfo' user.id%}">
+               {%csrf_token%}
+                <fieldset>
+                  {% for field in edu_form %}    
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                      {{field}}
+                      {% if field.help_text %}
+                        <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                    </article>
+                      
+                  {% endfor %}
+                </fieldset>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="submit" value="save">
+                  <button class="button next_tabBtn" style="padding:4px;background:#38B39E;color:#fff; border-radius:50%;width:48px;height:48px; margin-right:8px;"><span class="fas fa-angle-right"></span></button>
+                </section>
+               </form> 
+            </article>
+            <article class="grid-6 v-h_center bg-light_blue tab" style="border-radius:4px;" id="tab-2">
+                <h3 class="text_c-white">Previous Employment  details</h3>
+               <form method="post" action="{%url 'add_empInfo' user.id%}">
+               {% csrf_token %}
+                <fieldset>
+                  {% for field in emp_form %}    
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                      {{field}}
+                      {% if field.help_text %}
+                        <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                    </article>
+                      
+                  {% endfor %}
+                </fieldset>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="submit" value="save">
+                  <button class="button next_tabBtn" style="padding:4px;background:#38B39E;color:#fff; border-radius:50%;width:48px;height:48px; margin-right:8px;"><span class="fas fa-angle-right"></span></button>
+                </section>
+               </form> 
+            </article>
+            <article class="grid-6 v-h_center bg-light_blue tab" style="border-radius:4px;" id="tab-3">
+                <h3 class="text_c-white">preferred working location</h3>
+               <form method="post" action="{% url 'add_Prefinfo' user.id%}">
+               {% csrf_token %}
+                <fieldset>
+                  {% for field in pref_form %}    
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                      {{field}}
+                      {% if field.help_text %}
+                        <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                    </article>
+                      
+                  {% endfor %}
+                </fieldset>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="submit" value="save">
+                  <button class="button next_tabBtn" style="padding:4px;background:#38B39E;color:#fff; border-radius:50%;width:48px;height:48px; margin-right:8px;"><span class="fas fa-angle-right"></span></button>
+                </section>
+               </form> 
+            </article>
+            <article class="grid-6 v-h_center bg-light_blue tab" style="border-radius:4px;" id="tab-4">
+                <h3 class="text_c-white">File upload</h3>
+               <form method="post" action="{% url 'upload_file' user.id %}">
+               {% csrf_token %}
+                <fieldset>
+                  {% for field in file_upload_form %}    
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                      {{field}}
+                      {% if field.help_text %}
+                        <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                    </article>
+                      
+                  {% endfor %}
+                </fieldset>
+                <section class="" id="error_message">
+                </section>
+                <section class="submit_buttons box_vertPad2">
+                  <input id="submit_app" class="button" type="submit" value="save">
+                  <button class="button next_tabBtn" style="padding:4px;background:#38B39E;color:#fff; border-radius:50%;width:48px;height:48px; margin-right:8px;"><span class="fas fa-angle-right"></span></button>
+                </section>
+               </form> 
+            </article>
+       </section>
+       <section  class="grid-12 vert-marginTop-2 " style="display:none;" id="profile_summary">
+         <div class=" grid-12 grid-parent v-h_center max_width">
+         <article class="grid-12 grid-parent ">
+           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+            <article class="grid-12">
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Personal information</span>| <a href="" class="text_c-white modal_trigger" id="personal_info">Edit</a></p>
+              <ul>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">First name </span> <span>{{user.first_name}} {{user.last_name}}</span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Last name </span><span>{{user.last_name}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Email address </span><span>{{user.email}}</span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Phone contact </span><span>{{user_info.phone_number}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">location </span><span>{{user_info.location}}</span> </li>
+              </ul>
+            </article>
+           </div> 
+         </article>
+         
+         <article class="grid-12 grid-parent ">
+          
+           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+            <article class="grid-12">
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Education Details</span>| <a href="" class="text_c-white modal_trigger" id="edu_info">Edit</a></p>
+              <ul>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Certification </span> <span>{{edu_details.certification}} </span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Issuing Organization </span><span>{{edu_details.issuing_org}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Identification/id </span><span>{{edu_details.identification_number}}</span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Issue Date </span><span>{{edu_details.issue_date}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Expiration Date </span><span>{{edu_details.expiration_date}}</span> </li>
+              
+              </ul>
+            </article>
+           </div> 
+         </article>
+
+         
+       
+         <article class="grid-12 grid-parent ">
+           
+           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+            <article class="grid-12">
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Employement information</span>| <a href="" class="text_c-white modal_trigger" id="emp_info">Edit</a></p>
+              <ul>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Employer </span> <span>{{emp_details.employer}}</span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Job Function </span><span>{{emp_details.job_function}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Job status </span><span>{{emp_details.current_job_status}}</span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Start Date </span><span>{{emp_details.start_date}}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">End Date </span><span>{{emp_details.end_date}}</span> </li>
+              
+              </ul>
+            </article>
+           </div> 
+         </article>
+
+         <article class="grid-12 grid-parent">
+           
+           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+            <article class="grid-12">
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Preference</span>| <a href="" class="text_c-white modal_trigger" id="pref">Edit</a></p>
+              <ul>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Job Field preference</span> <span>{{preference.job_field_pref }} </span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Location Preference </span><span>{{preference.location_pref}}</span> </li>
+               
+              </ul>
+            </article>
+           </div> 
+         </article>
+         <article class="grid-12 grid-parent">
+           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
+            <article class="grid-12">
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Preference</span>| <a href="" class="text_c-white modal_trigger" id="file_upload">Edit</a></p>
+              <ul>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Job Field preference</span> <span>{{preference.job_field_pref }} </span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Location Preference </span><span>{{preference.location_pref}}</span> </li>
+               
+              </ul>
+            </article>
+           </div> 
+         </article>
+        </div>
+      </section>
+
+  <script>
+              var node_list = document.querySelectorAll('.modal_trigger');
+              var url="";
+              node_list.forEach(element => {
+                  element.addEventListener('click', function(e) {
+                  e.preventDefault();
+
+                  if (element.id == "personal_info") {
+                      console.log(element.id + "clicked");
+                      url = "EditUser_details/"+{{user.id}}
+                      console.log("user id:"+{{user.id}})
+                      $('#modal-1').toggleClass("md-show");
+                      
+                  } else if (element.id == "edu_info") {
+                      console.log(element.id + " clicked");
+                       url="/EditEdu_details/18"+{{user.id}}
+                      $('#modal-2').toggleClass("md-show");
+                  } else if (element.id == "emp_info") {
+                      console.log(element.id + " clicked");
+                      url="EditEmp_details/"+{{user.id}}
+                      $('#modal-3').toggleClass("md-show");
+
+                  } else if (element.id == "pref") {
+                      console.log(element.id + " clicked");
+                      url="EditPrefernce_details/"+{{user.id}}
+                      $('#modal-4').toggleClass("md-show");
+
+                  } else if (element.id == "file_upload") {
+                      console.log(element.id + " clicked");
+                      url="Editfile_uplaoded_details/"+{{user.id}}
+                      $('#modal-5').toggleClass("md-show");
+
+                  } else {
+                      console.log("hahahha")
+                  }
+              })
+           });
+
+            $('.user_profForm').submit(function(e) {
+              e.preventDefault();
+              window.alert("form submitted");
+              var serializedData = $(this).serialize();
+              console.log("serialized data :" + serializedData);
+
+              $.ajax({
+                  url: url,
+                  dataType: "json",
+                  method: 'post',
+                  data: serializedData,
+                  headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                  success: function(response) {
+
+                      var instance = JSON.parse(response["instance"]);
+                      var fields = instance[0]["fields"];
+                      alert("form processed");
+                     // alert(fields);
+          
+                  },
+                  error: function(response) {
+                      alert(response["error"]);
+
+                  }
+              });
+
+          });
+      
+      </script>
+ 
+ <section class="md-modal md-effect-1" id="modal-1">
+    <article class="md-content">
+      <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+        <span class="close" style="margin:auto; font-size:2em;" id="md-close1">&times;</span>
+      </div>
+      <h3>user profile</h3>
+      <div class="layout_rel text_c-white box_vertPad2" id ="form_pos">
+     
+        <form class="user_profForm" method="POST" action="{%url 'editUserInfor' user.id%}" id="user_profForm1" name="form">
+          {% csrf_token %}
+           <fieldset>
+               {%for field in profile_form %}     
+                <article class="grid-11 box_vertPad1 field">
+                 {{field.errors}}
+                  <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                     {{field}}
+                     {% if field.help_text %}
+                       <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                </article>
+              {% endfor %}
+            </fieldset>
+          <input type="submit" value="submit" name="submit" class="button" id="submit_app">
+       </form> 
+      </div>
+    </article>
+ </section>
+
+ <section class="md-modal md-effect-1" id="modal-2">
+    <article class="md-content">
+      <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+        <span class="close" style="margin:auto; font-size:2em;" id="md-close2">&times;</span>
+      </div>
+      <h3>user profile</h3>
+      <div class="layout_rel text_c-white box_vertPad2" id ="form_pos">
+     
+        <form class="user_profForm" method="POST" action="{%url 'editEduInfor' user.id%}" id="user_profForm2" name="form">
+          {% csrf_token %}
+           <fieldset>
+               {%for field in edu_form %}     
+                <article class="grid-11 box_vertPad1 field">
+                 {{field.errors}}
+                  <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                     {{field}}
+                     {% if field.help_text %}
+                       <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                </article>
+              {% endfor %}
+            </fieldset>
+          <input type="submit" value="submit" name="submit" class="button" id="submit_app">
+       </form> 
+      </div>
+    </article>
+ </section>
+
+ <section class="md-modal md-effect-1" id="modal-3">
+    <article class="md-content">
+      <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+        <span class="close" style="margin:auto; font-size:2em;" id="md-close3">&times;</span>
+      </div>
+      <h3>user profile</h3>
+      <div class="layout_rel text_c-white box_vertPad2" id ="form_pos">
+     
+        <form class="user_profForm" method="POST" action="{%url 'editEmpInfor' user.id%}" id="user_profForm3" name="form">
+          {% csrf_token %}
+           <fieldset>
+               {%for field in emp_form %}     
+                <article class="grid-11 box_vertPad1 field">
+                 {{field.errors}}
+                  <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                     {{field}}
+                     {% if field.help_text %}
+                       <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                </article>
+              {% endfor %}
+            </fieldset>
+          <input type="submit" value="submit" name="submit" class="button" id="submit_app">
+       </form> 
+      </div>
+    </article>
+ </section>
+
+ <section class="md-modal md-effect-1" id="modal-4">
+    <article class="md-content">
+      <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+        <span class="close" style="margin:auto; font-size:2em;" id="md-close4">&times;</span>
+      </div>
+      <h3>user profile</h3>
+      <div class="layout_rel text_c-white box_vertPad2" id ="form_pos">
+     
+        <form class="user_profForm" method="POST" action="{%url 'editPrefInfor' user.id%}" id="user_profForm4" name="form">
+          {% csrf_token %}
+           <fieldset>
+               {%for field in pref_form %}     
+                <article class="grid-11 box_vertPad1 field">
+                 {{field.errors}}
+                  <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                     {{field}}
+                     {% if field.help_text %}
+                       <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                </article>
+              {% endfor %}
+            </fieldset>
+          <input type="submit" value="submit" name="submit" class="button" id="submit_app">
+       </form> 
+      </div>
+    </article>
+ </section>
+
+ <section class="md-modal md-effect-1" id="modal-5">
+    <article class="md-content">
+      <div style="position:relative;right:0%;backround:#f1f1f1;border-radius:50%;background:#f1f1f1;width:40px;height:40px;text-align:center;z-index:100;cursor:pointer;">
+        <span class="close" style="margin:auto; font-size:2em;" id="md-close5">&times;</span>
+      </div>
+      <h3>user profile</h3>
+      <div class="layout_rel text_c-white box_vertPad2" id ="form_pos">
+     
+        <form class="user_profForm" method="POST" action="{%url 'editFile_updateInfor' user.id%}" id="user_profForm5" name="form">
+          {% csrf_token %}
+           <fieldset>
+               {%for field in file_upload_form %}     
+                <article class="grid-11 box_vertPad1 field">
+                 {{field.errors}}
+                  <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
+                     {{field}}
+                     {% if field.help_text %}
+                       <p>{{field.help_text|safe}}</p>
+                      {% endif %}
+                </article>
+              {% endfor %}
+            </fieldset>
+          <input type="submit" value="submit" name="submit" class="button" id="submit_app">
+       </form> 
+      </div>
+    </article>
+ </section>
+
+     </article>
+   </div>
+    </div>
+ </section>
+
+
+ 
+ <div class="md-overlay"></div>
+ {%block scripts%}
+
+   
+     
+ {%endblock%}
+{% endblock %}

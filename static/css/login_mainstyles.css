@@ -1,0 +1,38 @@
+* {
+    margin: auto;
+}
+
+#login_frm {
+    border: .8px solid #f1f1f1;
+    border-radius: 8px;
+    width: 40%;
+    box-shadow: 2px 2px #f1f1f1;
+    background: #fff;
+    z-index: 1;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    position: relative;
+    padding: 0.6em;
+    border-radius: 4px;
+    width: 80%;
+    margin: 0.4em auto;
+    outline: none;
+}
+
+button {
+    width: 30%;
+    padding: 0.4em;
+    display: block;
+    outline: none;
+    margin: 1em auto;
+}
+
+@media only screen and (max-width:600px) {
+    #login_frm {
+        width: 90%;
+        margin: auto;
+    }
+}

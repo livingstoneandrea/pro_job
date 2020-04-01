@@ -1,0 +1,189 @@
+<!Doctype html>
+   {% load static %}
+   <html lang="en">
+     <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Pro-jobs|deep minds</title>
+       <link rel="stylesheet" href="{%static 'css/main_styles.css'%}">
+       <link rel="stylesheet" href="{%static 'css/fontawesome-free-5.2.0-web/css/all.css'%}">
+        {% comment %} <link rel="stylesheet" href="{%static 'css/login_mainstyles.css'%}">  {% endcomment %}
+       {%block style_sheet%}{%endblock%} 
+     </head>
+     <body>
+        <!--<section class="grid-12" id="site_wrapper" >-->
+         <header class="grid-12 " >
+            <div class="grid-parent grid-12 max_width" style="padding:0.6em;">
+              <section class="grid-4">
+                <a href="{%url 'index'%}" style="font-size:1.2em;font-weigth:600"><h1 style="color:#fff;">Pro-job</h1></a>
+              </section>  
+              <nav class="grid-4 layout-center" id="nav_bar">
+                  <ul class="">
+                    <li><a href="{%url 'index'%}">Home</a></li>
+                    <li><a href="{% url 'app_guide' %}">Guides</a></li>
+                    <li><a href="{%url 'application_details'%}">Profile</a></li>
+                    {% comment %} <li><a href="">Contact</a></li> {% endcomment %}
+                  </ul> 
+              </nav> 
+              <article class="grid-4 layout-center" style="">
+                <ul class="">
+                    <li><a href="{%url 'admin:index'%}">Admin</a></li>
+                    <li><a href="{%url 'register'%}">Sign Up</a></li>
+                    <li><a href="{%url 'login'%}" style="background:#c7b198; border-radius:20px;padding:0.6em; color:#fff;">Sign In</a></li>
+                </ul> 
+               </article>  
+               <button class="navbar_toggler" data-toggle="colapse" data-target="nav_bar" type="button" style="background: transparent;"><span class="m_text-pad"> Menu </span><span class="fa fa-align-right" style="font-size: 2em; margin-left: .5em"></span></button>   
+            </div> 
+         </header>
+         <main  class="grid-12 layout-center layout_rel" data-scrollax-parent="true">
+          {% block  main_site %}
+
+
+          {% endblock  %}
+         </main>
+         <footer class="grid-12 vert-pad-2">
+            <div class="grid-12 layout-center">
+              <section class="grid-12 vert-margin-2 box_vertPad2 max_width" style="margin: 0 auto;">
+                  <article class="grid-parent layout-center">
+                    <div class="grid-3 v-h_center">
+                        <section class="">
+                          <a href="">
+                            Pro-Job
+                          </a>
+
+                        </section>
+                    </div>
+                    <div class="grid-3  text_c-light_gr">
+                        <span style="font-size:12px;">
+                            makes it easy and safe for you to get jobs and work anywhere in the world,
+                            while providing vetted with the tools,
+                        </span>
+                        <span>training, and support they need to become more effective.</span>
+                    </div>
+                    <div class="grid-3  vert-alignC v-h_center" style="margin: auto">
+                        <a href="" class="text_c-orange" style="padding: 12px 16px; border: 1px solid #aaa; border-radius: 12px;">Help center</a>
+                    </div>
+                    <div class="grid-3 v-h_center" style="margin: auto">
+                        <div class="vert-alignC">
+                            <article>
+                                <a href="" class="h-margin-1 text_c-white"><i class="fab fa-facebook" style="font-size: 1.5em;"></i></a>
+                                <a href="" class="h-margin-1 text_c-white"><i class="fab fa-twitter"
+                                                    style="font-size: 1.5em;"></i></a>
+                                <a href="" class="h-margin-1 text_c-white"><i class="fab fa-instagram"
+                                                    style="font-size: 1.5em;"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                  </article>
+                 
+                </section>
+                 <hr class="text_c-white grid-12 box_margTop2 max_width" style="background:#f1f1f1;padding:0.025em;">
+
+                    <section class="grid-12 layout-center vert-margin-2 vert-pad-2">
+                        <nav class="grid-parent grid-10 layout-center vert-alignC max_width">
+                            <section class="grid-3 h-margin-2">
+                                <h4 class="">
+                                    <a href class="text_c-orange text_7">About us</a>
+                                    <a href class=""><i class="fa fa-angle-right"></i></a>
+                                </h4>
+                                <div class="">
+                                    <!-- *4--->
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Our team</a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Our impact</a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Contuct us</a>
+                                    </article>
+                                </div>
+                            </section>
+                            <section class="grid-3 h-margin-2">
+                                <h4 class="">
+                                    <a href class="text_c-orange text_7">Support and trust</a>
+                                    <a href class=""><i class="fa fa-angle-right"></i></a>
+                                </h4>
+                                <div class="">
+                                    <!-- *4--->
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Start an application</a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Why join?</a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Pricing &amp; Fees</a>
+                                    </article>
+                                </div>
+                            </section>
+                          
+                            <section class="grid-3 h-margin-2">
+                                <h4 class="">
+                                    <a href class="text_c-orange text_7">Companies</a>
+                                    <a href class=""><i class="fa fa-angle-right"></i></a>
+                                </h4>
+                                <div class="">
+                                    <!-- *4--->
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Our services </a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_4">Our Partners </a>
+                                    </article>
+                                    <article class="">
+                                        <a href="" class="text_c-white text_7">Success strories </a>
+                                    </article>
+                                </div>
+                            </section>
+                        </nav>
+                       
+                    </section>
+                    <section class="grid-12 vert-pad-1 " style="background: #80a1b6;">
+                        <div class=" grid-parent grid-10">
+                            <article class="grid-6">
+                                <address class="text_c-light_gr"
+                                    style="color: #f1f1f1; font-weight: 400; font-size:0.75em;">
+                                    &copy; Copyright 2016-2019 , a 501(c)3 organization (EIN: 30‑0108263; Kenya#
+                                    1122823)
+                                    1110 Nairobi Ave NW, Ste 550, DC 20005, Kenya
+                                    <br>
+                                    <span class="text_c-orange"> Questions? Call</span>
+                                    <span class="">
+                                        <a href="" class="">+254.202.232.5784</a>
+                                    </span>
+                                </address>
+
+                            </article>
+                            <article class="grid-6">
+                                <span class="h-margin-2">
+                                    <i class="fas fa-globe-africa" style="font-size: 2em; color: f1f1f1;"></i>&#124;
+                                    <select style="padding: 0.3em; border-radius: 4px;">
+                                        <option value="">Kenya</option>
+                                        <option value="">Usa</option>
+                                    </select>
+
+                                </span>
+                                <span class="h-margin-1"><a href="" style="color: rgb(240, 141, 11);">privacy
+                                        &#8226;</a></span>
+                                <span class="h-margin-1"><a href="" class="text_c-white">cookie &#8226;</a></span>
+                                <span class="h-margin-1"><a href="" class="text_c-white">Data &#8226;</a></span>
+
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+            </footer>
+  
+        <!--</section>--> 
+     </body>
+     <script src="{%static 'js/jquery-3.3.1.js'%}"></script>
+     <script src="{%static 'js/main.js'%}"></script> 
+     <script src="{%static 'js/scrollax.min.js'%}"></script>
+     <script src="{%static 'js/jquery.animateNumber.min.js'%}"></script>
+     {%block scripts%}
+      
+     
+     {%endblock%}
+   </html>    

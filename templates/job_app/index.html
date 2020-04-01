@@ -1,0 +1,278 @@
+<!Doctype html>
+   {% load static %}
+   <html lang="en">
+     <head>
+       <meta charset="utf-8">
+       <title>OpenfaceAi|deep minds</title>
+       <link rel="stylesheet" href="{%static 'css/main_styles.css'%}">
+       <link rel="stylesheet" href="{%static 'css/fontawesome-free-5.2.0-web/css/all.css'%}">
+       
+       <style>
+         section#banner{
+           background:url('/static/images/golden-gate-bridge-san-francisco-2104742.jpg')no-repeat;
+           background-size: cover;
+           position: relative;
+           top: 0;
+           left: 0;
+           height:100vh;
+         }
+           
+       
+       </style>
+     </head>
+     <body>
+       <section class="grid-12" id="site_wrapper" >
+         <header class="grid-12  v-h_center" style="margin:0 auto;background:#32404e;">
+            <div class="grid-parent grid-12 max_width box_vertPad2">
+              <section class="grid-4">
+                <a href="{%url 'index'%}" style="font-size:2em;font-weigth:800"><h1 style="color:#fff;">Pro-job</h1></a>
+              </section>  
+              <nav class="grid-4 layout-center" id="nav_bar">
+                  <ul class="">
+                    <li><a href="{%url 'index'%}">Home</a></li>
+                    <li><a href="{%url 'application_details'%}">Find jobs</a></li>
+                    <li><a href="{%url 'application_details'%}">Browse startup</a></li>
+                    {% comment %} <li><a href="">Contact</a></li> {% endcomment %}
+                  </ul> 
+              </nav> 
+              <article class="grid-4 layout-center" style="">
+                <ul class="">
+                    <li><a href="{%url 'admin:index'%}">Post a Job</a></li>
+                    <li><a href="{%url 'register'%}">Sign Up</a></li>
+                    <li><a href="{%url 'login'%}">Sign In</a></li>
+                </ul>
+               </article>     
+            </div> 
+         </header>
+         <main class="grid-12 layout-center layout_rel">
+            <section class="grid-12  layout-center  box_margBot2" id="banner">
+              <article class="grid-12 v-h_center">
+                <h3 class="vert-margin-2 text_c-white">Find your Dream job by working abroad</h3>
+                <form method="post" action="">
+                  <div class="grid-9 box_margTop2 layout_rel max_width" style="background:#fff; border_radius:8px;z-index:1;">
+                       <input type="search" class="grid-4 box_vertPad2 box_leftPad5 box_rightPad2 magnifyingGlass border_default" placeholder="search here for best experience...">
+                       <select class="grid-2" style="padding:.8em 2em;margin-right:2em;">
+                         <option value="">Select location</option>
+                       </select>
+                       <button type="submit" class="box_vertPad2 " style="padding:1em 3em; background:#80a1b6;color:#fff;">search</button>
+                       <article class=""></article>
+                  </div>
+                </form>   
+              </article>    
+            </section>
+            <section class="grid-12">
+              <div class="grid-12 grid-parent layout-center">
+                 <article class="grid-3 box_vertPad2">
+                    <section class="grid-12">
+                        <article class="grid-12">
+                           <h4>Job type</h4>
+                           <form method="post">
+                             <div><input type="checkbox" name=""><span>Full-Time</span></div>
+                             <div><input type="checkbox" name=""><span>Part-Time</span></div>
+                             <div><input type="checkbox" name=""><span>Internship</span></div>
+                             <div><input type="checkbox" name=""><span>Freelancer</span></div> 
+                           </form>
+                        </article>
+                      </section>
+                 
+                 </article>
+
+                 <article class="grid-6 box_vertPad2 box_margTop2" style="background:#fff;border:1px solid #f1f1f1;">
+                   <div class="grid-parent grid-12 layout-center">
+                      <section class="grid-12 grid-parent box_vertPad2">
+                        <div class="grid-6">showing :<a href="">fulltime jobs</a></div>
+                        <div class="grid-6">sort by :<a href=""> relevant date</a></div>
+                      </section>
+                      <section class="grid-12 box_vertPad2 layout-center" style="background:#fff;margin:0 8px;border-radius:4px;"> 
+                        <a href=""  class="grid-8 box_margBot2">
+                           <section class="grid-parent">
+                             <article class="grid-2">
+                                {% comment %} <img src="" alt="job_logo"> {% endcomment %}
+                                <span class="fas fa-user"></span>
+                             </article>
+                             <article class="grid-6">
+                                 <h4>Product Designer</h4>
+                                 <div class="">
+                                    <span href=""><i class="fas fa-map"></i> Nike</span>
+                                    <span href=""><i class="fas fa-map-marker-alt"></i> Qatar</span>
+                                 </div>
+                             
+                             </article>
+                             <article class="grid-3">
+                                <h4>senior product designer</h4>
+                             </article>
+                           </section>
+                        
+                        </a>
+                      </section>
+                      <section class="grid-12 box_vertPad2 layout-center" style="background:#fff;margin:0 8px;border-radius:4px;"> 
+                        <a href=""  class="grid-8 box_margBot2">
+                           <section class="grid-parent">
+                             <article class="grid-2">
+                                {% comment %} <img src="" alt="job_logo"> {% endcomment %}
+                                <span class="fas fa-user"></span>
+                             </article>
+                             <article class="grid-6">
+                                 <h4>Product Designer</h4>
+                                 <div class="">
+                                    <span href=""><i class="fas fa-map"></i> Nike</span>
+                                    <span href=""><i class="fas fa-map-marker-alt"></i> Qatar</span>
+                                 </div>
+                             
+                             </article>
+                             <article class="grid-3">
+                                <h4>senior product designer</h4>
+                             </article>
+                           </section>
+                        
+                        </a>
+                      </section>
+                      
+                   </div> 
+                 </article>
+
+                 <article class="grid-3 box_vertPad2">
+                    <div class="grid-12">
+                       <section class="box_vertPad2">
+                          <p class="box_margBot2">Get new job alert by email</p>
+
+                          <form method="post" action="">
+                            <input type="email" name="subscriber_email" placeholder="you@eample.com" class="">
+                            <button type="submit" name="submit" style="margin:1em auto;">subscribe</button>
+                          </form>
+                       </section>  
+                       <section class="">
+                         <h5>My recent searches</h5>
+                       </section>
+                    </div>
+                 </article>
+              </div>
+            </section> 
+               <!-- start of the service section-->
+            <section class="grid-parent grid-12 text-c layout-center  " id="services">
+               <article class="vertical-alignc margin-1 max_width">
+                 <div class="grid-12">
+                     <div class="box_vertPad2">
+                        <span class=""></span>
+                        <h2><span class="">Pro-job Services</span></h2>
+                        <span class="subheading">Services</span>
+                         
+                     </div>
+                 </div>
+                 <div class="grid-parent ">
+                    <section class=" grid-6 margin-1">
+                       <div class="services grid-parent margin-1">
+                           
+                           <div class="grid-6" style="flex-flow: row-reverse">
+                               <h3 class="heading">Daily Communion</h3>
+                               <p class="">their philanthropic footprint with global nonprofit vetting, grantmaking, </p>
+                           </div>
+                        <div class="icon "><span class="fas fa-hand-holding-heart"></span></div>
+                       </div>
+                       <div class="services grid-12 grid-parent margin-1">
+                           
+                           <div class="grid-6">
+                               <h3 class="heading">Our Community</h3>
+                               <p class=""> charitable gift cards, and digital campaigns to power cause marketing</p>
+                           </div>
+                           <div class="icon"><span class="fas fa-users"></span></div>
+                       </div>
+                       <div class="services grid-parent margin-1">
+                           
+                           <div class="grid-6">
+                               <h3 class="heading">Teaching</h3>
+                               <p class=""> charitable gift cards, and digital campaigns to power cause marketing</p>
+                           </div>
+                           <div class="icon"><span class="fas fa-book-open"></span></div>
+                       </div>
+                        
+                    </section>
+                    <section class="grid-6 margin-1">
+                       <div class="services grid-parent margin-1">
+                           <div class="icon"><span class="fas fa-users"></span></div>
+                           <div class="grid-6">
+                               <h3 class="heading">Helpers</h3>
+                               <p class="">their philanthropic footprint with global nonprofit vetting, grantmaking, </p>
+                           </div>
+                       </div>
+                       <div class="services grid-parent margin-1">
+                           <div class="icon"><span class="fas fa-handshake"></span></div>
+                           <div class="grid-6">
+                               <h3 class="heading">Disaster Relief</h3>
+                               <p class=""> global nonprofit vetting, grantmaking, digital campaigns to power cause marketing</p>
+                           </div>
+                       </div>
+                       <div class="services grid-parent margin-1">
+                           <div class="icon"><span class="fas fa-calendar-alt"></span></div>
+                           <div class="grid-6">
+                               <h3 class="heading">Events</h3>
+                               <p class="">their philanthropic footprint with global nonprofit vetting, grantmaking, </p>
+                           </div>
+                       </div>   
+                     </section>  
+                 </div>
+               </article>
+            </section> 
+        <!-- End of the service section-->
+            <section class="grid-12 v-pad2 layout-center  box_vertPad2">
+               <div class="grid-12 text-c max_width">
+                 <article class="grid-12 text-c">
+                    <div class="box_vertPad2">
+                       <h2>Pro Finder</h2>
+                       <span>suggested</span>
+                    </div>
+                 </article>
+                 <article class="grid-parent grid-12 box_margTop2">
+                    <section class="grid-6 bg-light-gr vert-padd6">
+                      <article class="grid-12">
+                        <img src="{%static 'images/connect.svg'%}" style="max-width:300px; height:auto;">
+                        <div class="">
+                          <h2>Connect with  people  who can help</h2>
+                          <a href="" class="">Find the right person to help</a>
+                        
+                        </div>
+                      
+                      </article>
+                    </section>
+                    <section class="grid-6 v-pad2 layout-center vert-padd6">
+                       <article class="grid-parent grid-12 vert-alignC">
+                        <img src="{%static 'images/work.svg'%}" class="grid-12" style="max-width:300px; height:auto;">
+                        <div class="grid-12">
+                          <h2 class="box_margBot4">Learn the skills you need to succeed</h2>
+                          <a href="" class="">Find the right person to help</a>
+                        </div>
+                      
+                      </article>
+                    
+                    </section>
+                 </article>
+               </div>
+            </section>
+            <section class="grid-12 v-pad2 layout-center">
+              <div class="grid-parent grid-12 max_width">
+                <article class="grid-6 vert-alignC">
+                  <h2>Who is pro-job for?</h2>
+                  <h4>Any one looking to navigate their professinal life</h4>
+                </article>
+                <article class="grid-6">
+                  <img src="{%static 'images/guide.jpeg'%}" style="max-width:400px;">
+                </article>
+              </div>
+            </section>
+                  
+         </main>
+         <footer class="">
+          <section class="">
+          </section>
+         
+         </footer>
+       </section> 
+     </body>
+     <script src="{%static 'js/jquery-3.3.1.js'%}"></script>
+     <script src="{%static 'js/main.js'%}"></script>
+     
+     <script> 
+         
+     
+     </script>
+   </html>  

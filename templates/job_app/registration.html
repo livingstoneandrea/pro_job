@@ -1,0 +1,33 @@
+{% extends 'job_app/base.html' %}
+{%load static%}
+
+{%block style_sheet%}<link rel="stylesheet" href="{%static 'css/login_mainstyles.css'%}">{%endblock%} 
+
+{%block main_site%}
+
+    <h2 class="margin-1">Don't have an account?</h2>
+    <section class="grid-12 grid-parent max_width layout-center text-c">
+        <article class="grid-8 v-h_center box_topPad5 box_BotPad2 box_margBot2" id="login_frm">
+            <h4 style="font-size:1.5em; font-weight:600" class="">Register</h4>
+            <p style="width:60px; height:60px; border-radius:50%;  background:#f1f1f1;"><span class="fas fa-user" style="font-size:2em; color:#000;margin:auto; "></span></p>
+
+            <form method="post" class="">
+            {%csrf_token%}
+
+              {%for field in form%}
+                    <article class="grid-11 box_vertPad1 field">
+                      {{field.errors}}
+                      <label class="grid-12" for="{{field.id_for_label}}" style="text-align:left;">{{field.label}} <span class="asterick">*</span></label>
+                      {{field}}
+                      
+                    </article>
+                      
+                  {% endfor %}
+                <button type="submit" class="v-h_center" style="margin:12px auto;padding:0.4em 0.6em; border-radius:4px; ">register</button>  
+            </form>
+        
+            <a href="{%url 'index'%}" class="" >main page</a>
+        </article>
+    </section>            
+  
+{% endblock %}
