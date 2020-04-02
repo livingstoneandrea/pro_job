@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1a45de4f-2bf3-4d6d-8e81-07fda1b4f18e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job_pro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job_pro/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main_styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/job_app/application_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/job_app/application_info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,10 +66,18 @@
       <option name="presentableId" value="Default" />
       <updated>1585715428590</updated>
       <workItem from="1585715442242" duration="5261000" />
+      <workItem from="1585758509860" duration="7754000" />
+      <workItem from="1585811654527" duration="12337000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1585811654656">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1585811654656" />
   </component>
 </project>

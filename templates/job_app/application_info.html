@@ -50,7 +50,7 @@
              </div>
              <article class="grid-12">
                <section class="grid-parent">
-                 <div class="grid-2 box_vertPad2">
+                 <div class="grid-2 box_vertPad2  ">
                   <a href="javascript:void(0)" id="personal-details">personal info</a>
                  </div>
                  <div class="grid-2 box_vertPad2">
@@ -63,7 +63,7 @@
                   <a href="javascript:void(0)" id="pref">preference</a>
                  </div>
                  <div class="grid-2 box_vertPad2">
-                  <a href="javascript:void(0)" id="fele-attach">File attachment</a>
+                  <a href="javascript:void(0)" id="file-attach">File attachment</a>
                  </div>
                  <div class="grid-2 box_vertPad2">
                   <a href="javascript:void(0)" id="review">Review and Edit</a>
@@ -79,8 +79,8 @@
                <form method="post" action="{% url 'add_userInfo' user.id %}">
                {% csrf_token %}
                 <fieldset>
-              
-                  {% for field in profile_form %}    
+
+                  {% for field in prof_form %}
                     <article class="grid-11 box_vertPad1 field">
                       {{field.errors}}
                       <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
@@ -89,7 +89,6 @@
                         <p>{{field.help_text|safe}}</p>
                       {% endif %}
                     </article>
-                      
                   {% endfor %}
                 </fieldset>
                 <section class="" id="error_message">
@@ -180,7 +179,7 @@
                <form method="post" action="{% url 'upload_file' user.id %}">
                {% csrf_token %}
                 <fieldset>
-                  {% for field in file_upload_form %}    
+                  {% for field in files_form %}
                     <article class="grid-11 box_vertPad1 field">
                       {{field.errors}}
                       <label class="text_c-light_gr" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
@@ -189,8 +188,9 @@
                         <p>{{field.help_text|safe}}</p>
                       {% endif %}
                     </article>
-                      
+
                   {% endfor %}
+
                 </fieldset>
                 <section class="" id="error_message">
                 </section>
@@ -270,11 +270,12 @@
          <article class="grid-12 grid-parent">
            <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
             <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Preference</span>| <a href="" class="text_c-white modal_trigger" id="file_upload">Edit</a></p>
+              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Files uploaded</span>| <a href="" class="text_c-white modal_trigger" id="file_upload">Edit</a></p>
               <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Job Field preference</span> <span>{{preference.job_field_pref }} </span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Location Preference </span><span>{{preference.location_pref}}</span> </li>
-               
+               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">File name</span> <span>{{file.file_name }} </span></li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">submitted_date </span><span>{{file.submitted_date }}</span> </li>
+               <li class="grid-12"><span class="text_7" style="margin-right:4em">Comments </span><span>{{file.comments }}</span> </li>
+
               </ul>
             </article>
            </div> 
@@ -282,7 +283,7 @@
         </div>
       </section>
 
-  <script>
+    <script>
               var node_list = document.querySelectorAll('.modal_trigger');
               var url="";
               node_list.forEach(element => {
@@ -361,7 +362,7 @@
         <form class="user_profForm" method="POST" action="{%url 'editUserInfor' user.id%}" id="user_profForm1" name="form">
           {% csrf_token %}
            <fieldset>
-               {%for field in profile_form %}     
+               {%for field in prof_form%}
                 <article class="grid-11 box_vertPad1 field">
                  {{field.errors}}
                   <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>
@@ -473,7 +474,7 @@
         <form class="user_profForm" method="POST" action="{%url 'editFile_updateInfor' user.id%}" id="user_profForm5" name="form">
           {% csrf_token %}
            <fieldset>
-               {%for field in file_upload_form %}     
+               {%for field in files_form %}
                 <article class="grid-11 box_vertPad1 field">
                  {{field.errors}}
                   <label class="text_c-green" for="{{field.id_for_label}}">{{field.label}} <span class="">*</span></label>

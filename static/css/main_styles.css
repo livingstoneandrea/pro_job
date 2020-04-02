@@ -498,6 +498,9 @@ div.field label .asterick {
     font-size: 18px;
     line-height: 18px;
 }
+.asterick{
+    color:#DB2A3A;
+}
 
 input[type='text'],
 input[type='email'],
@@ -582,10 +585,11 @@ article.active {
         overflow: hidden;
         margin: auto;
     }
-    section#profile_summary div article{
-        margin: auto;
+    section#profile_summary div article.grid-parent{
+        margin:8px auto;
         text-align: center;
         vertical-align: center;
+        align-content: center;
         width: 100%;
     }
 }

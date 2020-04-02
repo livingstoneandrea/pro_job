@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import SignUpForm, EditUserProfileInfoForm, Education_levelForm, Preference_Form, Employement_DetailForm, \
-    File_uploadForm
+from job_app.forms import (SignUpForm,Profile_InfoForm,Education_levelForm, Preference_Form,
+                           Employement_DetailForm,File_UploadForm,)
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -14,7 +14,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
-from .models import Profile, Education_level, Employment_details, Preference, File_uploaded
+from job_app.models import (Profile, Education_level, Employment_details, Preference, File_uploaded,)
 from django.http.response import JsonResponse
 from django.core import serializers
 
@@ -94,52 +94,34 @@ def get_userPage(request):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
 
-    print("user profile certification ", profile.education_level)
-    if profile.education_level is None:
-        form = Education_levelForm(instance=profile.education_level)
+    # print("user profile certification ", profile.education_level)
+    if profile is None:
+        profile_form = Profile_InfoForm(instance=profile)
     else:
-        form = Education_levelForm(initial={'user': user, 'certification': profile.education_level.certification,
-                                            'issuing_org': profile.education_level.issuing_org,
-                                            'identification_number': profile.education_level.identification_number,
-                                            'issue_date': profile.education_level.issue_date,
-                                            'expiration_date': profile.education_level.expiration_date},
-                                   instance=profile.education_level)
+        profile_form = Profile_InfoForm(instance=profile)
+
+    if profile.education_level is None:
+        edu_form = Education_levelForm(instance=profile.education_level)
+    else:
+        edu_form = Education_levelForm(initial={'user': user, 'certification': profile.education_level.certification,'issuing_org': profile.education_level.issuing_org,'identification_number': profile.education_level.identification_number,'issue_date': profile.education_level.issue_date,'expiration_date': profile.education_level.expiration_date},instance=profile.education_level)
     if profile.employment_details is None:
         emp_form = Employement_DetailForm(instance=profile.employment_details)
     else:
         emp_form = Employement_DetailForm(instance=profile.employment_details)
+
     if profile.Preference is None:
-        emp_form = Employement_DetailForm(instance=profile.employment_details)
+        pref_form = Preference_Form(instance=profile.Preference)
     else:
-        emp_form = Employement_DetailForm(instance=profile.employment_details)
+        pref_form = Preference_Form(instance=profile.Preference)
+
     if profile.file_upload is None:
-        file_upload_form = File_uploadForm(instance=profile.file_upload)
+        uploaded_file_form = File_UploadForm(instance=profile.file_upload)
     else:
-        file_upload_form = File_uploadForm(instance=profile.file_upload)
-    if profile.Preference is None:
-        pref_form = Preference_Form(instance=profile.Preference)
-    else:
-        pref_form = Preference_Form(instance=profile.Preference)
-    if profile is None:
-        profile_form = EditUserProfileInfoForm(instance=Profile)
-    else:
-        profile_form = EditUserProfileInfoForm(instance=profile)
-    if profile.education_level:
-        edu_form = Education_levelForm(instance=profile.education_level)
-    else:
-        edu_form = Education_levelForm(instance=profile.education_level)
+        uploaded_file_form = File_UploadForm(instance=profile.file_upload)
 
-    # if request.method =='POST':
-    #     form = Education_levelForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    # else:
-    #     print("post not initiated")        
-    context = {'user': request.user, 'user_info': request.user.profile, 'edu_details': profile.education_level,
-               'emp_details': profile.employment_details, 'profile_form ': profile_form, 'form': form,
-               'emp_form': emp_form, 'pref_form': pref_form, 'file_upload_form ': file_upload_form,
-               'edu_form': edu_form, 'preference': profile.Preference}
-
+    # print("printing profile form\n.... {}".format(profile_form))
+    context = {'user': request.user, 'user_info': request.user.profile, 'edu_details': profile.education_level, 'emp_details': profile.employment_details,'prof_form':profile_form, 'emp_form': emp_form, 'pref_form': pref_form, 'edu_form': edu_form,'files_form': uploaded_file_form ,'preference': profile.Preference,'file':profile.file_upload,}
+    print("context var {}\n\n".format(context.items()))
     return render(request, 'job_app/application_info.html', context)
 
 
@@ -169,15 +151,15 @@ def user_logout(request):
 
 
 def get_profile(request, user_id):
-    user = User.objects.get(pk=request.user.id)
-    profile = Profile.objects.get(user=user.id)
-    form = Education_levelForm(request.POST)
-    if request.method == 'POST':
-        form = Education_levelForm(request.POST)
-        if form.is_valid():
-            form.save()
+    # user = User.objects.get(pk=request.user.id)
+    # profile = Profile.objects.get(user=user.id)
+    # form = Education_levelForm(request.POST)
+    # if request.method == 'POST':
+    #     form = Education_levelForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
 
-    return render(request, 'job_app/client_detail_form.html', {'form': form})
+    return render(request, 'job_app/client_detail_form.html')
 
 
 def add_eduInfo(request, user_id):
@@ -188,8 +170,9 @@ def add_eduInfo(request, user_id):
     if request.method == 'POST':
         form = Education_levelForm(request.POST, instance=profile.education_level)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
             status = "saved"
+            instance.save()
             print("Education level added")
         else:
             print("Error while saving")
@@ -200,13 +183,15 @@ def add_eduInfo(request, user_id):
 def add_userInfo(request, user_id):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
-    form = EditUserProfileInfoForm(instance=profile)
+    form = Profile_InfoForm(instance=profile)
     status = "";
     if request.method == 'POST':
-        form = EditUserProfileInfoForm(request.POST, instance=profile)
+        form = Profile_InfoForm(request.POST, instance=profile)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            print(instance)
             status = "saved"
+            instance.save()
             print("user profile added")
         else:
             print("Error while saving")
@@ -222,7 +207,8 @@ def add_empInfo(request, user_id):
     if request.method == 'POST':
         form = Employement_DetailForm(request.POST, instance=profile.employment_details)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.save()
             status = "saved"
             print("employment details added")
         else:
@@ -239,7 +225,8 @@ def add_Prefinfo(request, user_id):
     if request.method == 'POST':
         form = Preference_Form(request.POST, instance=profile.Preference)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.save()
             status = "saved"
             print("prefernce info added")
         else:
@@ -251,11 +238,14 @@ def add_Prefinfo(request, user_id):
 def upload_file(request, user_id):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
-    form = File_uploadForm(instance=profile.file_upload)
+    form =File_UploadForm(instance=profile.file_upload)
+    print(form)
     if request.method == 'POST':
-        form = File_uploadForm(request.POST, instance=profile.file_upload)
+        form = File_UploadForm(request.POST, instance=profile.file_upload)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            print(instance)
+            instance.save()
             status = "saved"
             print("File uploaded ")
         else:
@@ -296,11 +286,9 @@ def UpdateEduInfo(request, user_id):
 def UpdateUserInfo(request, user_id):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
-
+    form = Profile_InfoForm( instance=profile)
     if request.is_ajax and request.method == "POST":
-
-        form = EditUserProfileInfoForm(request.POST, instance=profile)
-
+        form = Profile_InfoForm(request.POST, instance=profile)
         if form.is_valid():
             print("form is valid")
             instance = form.save(commit=False)
@@ -358,11 +346,8 @@ def UpdateEmploymentDetails(request, user_id):
 def UpdatePreferenceDetails(request, user_id):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
-
     if request.is_ajax and request.method == "POST":
-
         form = Preference_Form(request.POST, instance=profile.Preference)
-
         if form.is_valid():
             print("form is valid")
             instance = form.save(commit=False)
@@ -387,10 +372,10 @@ def UpdatePreferenceDetails(request, user_id):
 def Update_fileUploads(request, user_id):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user.id)
-    form = File_uploadForm(instance=profile.file_upload)
+    #form = File_UploadForm()
 
     if request.is_ajax and request.method == "POST":
-        form = File_uploadForm(request.POST, instance=profile.file_upload)
+        form = File_UploadForm(request.POST, instance=profile.file_upload)
         if form.is_valid():
             print("form is valid")
             instance = form.save(commit=False)
