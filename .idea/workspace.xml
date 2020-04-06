@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a45de4f-2bf3-4d6d-8e81-07fda1b4f18e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job_pro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job_pro/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job_pro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job_pro/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main_styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/job_app/application_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/job_app/application_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/signals.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +117,7 @@
       <workItem from="1585920550716" duration="2226000" />
       <workItem from="1586009970349" duration="10680000" />
       <workItem from="1586073948407" duration="21410000" />
-      <workItem from="1586155618717" duration="13404000" />
+      <workItem from="1586155618717" duration="13625000" />
     </task>
     <servers />
   </component>
