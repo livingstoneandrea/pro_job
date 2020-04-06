@@ -18,7 +18,9 @@ class SignUpForm(UserCreationForm):
 class Profile_InfoForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('first_name', 'last_name', 'email', 'location', 'phone_number')
+       # fields = '__all__'
+        #('first_name', 'last_name', 'email', 'location', 'phone_number')
+        exclude =['user','signup_confirmation','employment_details','education_level','Preference','file_upload']
 
 
 class Education_levelForm(ModelForm):

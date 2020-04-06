@@ -22,7 +22,7 @@ class Employment_details(models.Model):
     end_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return "%s" % (self.employer)
+        return self.employer
 
 
 class Education_level(models.Model):
@@ -41,7 +41,7 @@ class Preference(models.Model):
     location_pref = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return "%s".format(self.job_field_pref)
+        return "{}".format(self.job_field_pref)
 
 
 class File_uploaded(models.Model):
@@ -61,19 +61,27 @@ class Profile(models.Model):
     signup_confirmation = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=20, unique=True, null=True, blank=True)
     location = models.CharField(max_length=50, null=True, blank=True)
-    employment_details = models.ForeignKey(Employment_details, on_delete=models.CASCADE, blank=True, null=True)
-    education_level = models.ForeignKey(Education_level, on_delete=models.CASCADE, blank=True, null=True)
-    Preference = models.ForeignKey(Preference, on_delete=models.CASCADE, blank=True, null=True)
-    file_upload = models.ForeignKey(File_uploaded, on_delete=models.CASCADE, blank=True, null=True)
+    employment_details = models.ForeignKey(Employment_details, on_delete=models.CASCADE, default=None,null=True)
+    education_level = models.ForeignKey(Education_level, on_delete=models.CASCADE, default=None, null=True)
+    Preference = models.ForeignKey(Preference, on_delete=models.CASCADE, default=None,null=True)
+    file_upload = models.ForeignKey(File_uploaded, on_delete=models.CASCADE, default=None,null=True)
+
+    # def save(self,*args,**kwargs):
+    #     try:
+    #         self.education_level.exist()
+    #     except:
+    #         self.education_level = Education_level.objects.
+    #
+    #     super().save(*args,**kwargs)
+
 
     def __str__(self):
         return self.user.username
 
-
-@receiver(post_save, sender=User)
-def update_profile_signal(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-        print("profile created")
-    instance.profile.save()
-    print("profile updated")
+# @receiver(post_save, sender=User)
+# def update_profile_signal(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#         print("profile created")
+#     instance.profile.save()
+#     print("profile updated")

@@ -26,7 +26,6 @@ urlpatterns = [
     path('sent/', views.activation_sent_view, name="activation_sent"),
     path('logout/',views.user_logout,name='logout'),
     path('activate/<slug:uidb64>/<slug:token>/', views.activate, name='activate'),
-    path('client_details/<int:user_id>',views.get_profile,name='userinfor'),
     path('EditEdu_details/<int:user_id>',views.UpdateEduInfo,name='editEduInfor'),
     path('EditEmp_details/<int:user_id>',views.UpdateEmploymentDetails,name='editEmpInfor'),
     path('EditUser_details/<int:user_id>',views.UpdateUserInfo,name='editUserInfor'),

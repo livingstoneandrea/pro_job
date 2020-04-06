@@ -5,8 +5,23 @@
 
 
  <section class="grid-12 layout-center">
-    <div class="grid-parent v-h_center vert-alignC max_width">
-      <section class="grid-parent">
+    <div class="grid-parent v-h_center vert-alignC max_width" style="background: lightyellow">
+
+
+   <div class="grid-12 max_width">
+     <article class="grid-parent box_topPad5">
+       <section class="grid-12 grid-parent">
+          <div class="grid-6">
+            <a href="">{{user.username}} </a><span>signed in</span>
+            |
+            <a href="">Account options</a>
+          </div>
+          <div class="grid-6">
+            | <a href="{%url 'logout'%}">sign out</a>
+          </div>
+       
+       </section>
+        <section class="grid-parent">
         <article class="grid-12 layout-center">
           <div class="" id="" style="border-bottom: 2px solid #a3a3a3;height: 34px;line-height: normal;padding: 0 0 0 18px ;box-sizing: border-box;">
             <span class="" style="background-position: top right;background-repeat: no-repeat;background-color: transparent;white-space:nowrap;padding: 5px 2px 4px 0;display: inline-block;vertical-align: bottom; cursor: pointer;">
@@ -26,31 +41,17 @@
           </div>
         </article>
       </section>
-
-   <div class="grid-12 max_width">
-     <article class="grid-parent box_topPad5">
-       <section class="grid-12 grid-parent">
-          <div class="grid-6">
-            <a href="">{{user.username}} </a><span>signed in</span>
-            |
-            <a href="">Account options</a>
-          </div>
-          <div class="grid-6">
-            | <a href="{%url 'logout'%}">sign out</a>
-          </div>
-       
-       </section>
        <section class="grid-12 box_topMargin-1">
           <article class="grid-12 grid-parent max_width box_vertPad2 bg-light-gr ">
              <div class="grid-6">
               <h3>General Profile</h3>
              </div>
              <div class="grid-6">
-               <p>showing step <span>1</span> of<span> 7</span></p>
+               <p>showing step <span class="text_c-green">1</span> of<span class="text_c-red"> 7</span></p>
              </div>
              <article class="grid-12">
                <section class="grid-parent">
-                 <div class="grid-2 box_vertPad2  ">
+                 <div class="grid-2 box_vertPad2 ">
                   <a href="javascript:void(0)" id="personal-details">personal info</a>
                  </div>
                  <div class="grid-2 box_vertPad2">
@@ -201,7 +202,7 @@
                </form> 
             </article>
        </section>
-       <section  class="grid-12 vert-marginTop-2 " style="display:none;" id="profile_summary">
+       <section  class="grid-12 vert-marginTop-2 " style="display:none; " id="profile_summary">
          <div class=" grid-12 grid-parent v-h_center max_width">
          <article class="grid-12 grid-parent ">
            <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
@@ -219,7 +220,6 @@
          </article>
          
          <article class="grid-12 grid-parent ">
-          
            <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
             <article class="grid-12">
               <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Education Details</span>| <a href="" class="text_c-white modal_trigger" id="edu_info">Edit</a></p>
@@ -501,7 +501,5 @@
  <div class="md-overlay"></div>
  {%block scripts%}
 
-   
-     
  {%endblock%}
 {% endblock %}

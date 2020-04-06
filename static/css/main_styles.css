@@ -512,6 +512,12 @@ input[type='password'] {
     border-radius: 3px;
     width: 60%;
 }
+textarea{
+    padding: 20px;
+    margin:16px auto;
+    width: 60%;
+    height: auto;
+}
 
 .submit_buttons {
     text-align: right;
@@ -547,6 +553,7 @@ input[type='password'] {
 article.active {
     display: block;
 }
+
 
 @media only screen and (max-width:600px) {
     body {
