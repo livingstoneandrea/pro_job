@@ -12,6 +12,7 @@ body {
     font-weight: 400;
     line-height: 1.375;
     color: #32404e;
+
 }
 
 header {
@@ -20,6 +21,8 @@ header {
     left: 0;
     z-index: 100;
     background: #232f3e;
+    opacity: .8;
+    /*background: transparent;*/
 }
 
 footer {
@@ -102,7 +105,6 @@ h5 {
     margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
-    align-content: flex-start;
     position: relative;
     letter-spacing: 0.125em;
     text-rendering: optimizeSpeed;
@@ -135,7 +137,6 @@ ul {
     list-style: none;
 }
 
-header,
 nav,
 main,
 section,
@@ -265,7 +266,8 @@ footer {
 }
 
 section#banner {
-    background: url('/static/images/banner.png')no-repeat;
+    background: url("/static/images/air-air-travel-airbus-aircraft-358319.jpg")no-repeat;
+    /*background: url('/static/images/banner.png')no-repeat;*/
     background-size: cover;
     position: relative;
     top: 0;
@@ -439,6 +441,7 @@ a i.fa-angle-right {
     height: auto;
     z-index: 2000;
     visibility: hidden;
+    background: #06314d;
     transform: translateX(-50%) translateY(-50%);
 }
 
@@ -453,7 +456,7 @@ a i.fa-angle-right {
     visibility: hidden;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 2;
     opacity: 0;
     background: rgba(40, 43, 49, .8);
     transition: all 0.3s;
@@ -466,7 +469,7 @@ a i.fa-angle-right {
 
 .md-content {
     color: #333;
-    background: #fff;
+    background: #06314d;
 }
 
 .md-effect-1 .md-content {
@@ -553,6 +556,30 @@ textarea{
 article.active {
     display: block;
 }
+section#profile_summary div article.grid-parent{
+    width: 60%;
+    display: block;
+}
+#profile_switch{
+    border-bottom: 2px solid #a3a3a3;
+    height: 34px;
+    line-height: normal;
+    padding: 0 0 0 18px ;
+    box-sizing: border-box;
+
+}
+
+#profile_switch::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
 
 
 @media only screen and (max-width:600px) {
@@ -566,6 +593,7 @@ article.active {
     header {
         background: #f1f1f1;
         position: fixed;
+        opacity: 1;
         top: 0;
         left: 0;
     }
@@ -597,6 +625,6 @@ article.active {
         text-align: center;
         vertical-align: center;
         align-content: center;
-        width: 100%;
+        width: 80%;
     }
 }

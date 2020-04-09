@@ -131,12 +131,10 @@ $(document).ready(function() {
             tab_no = 0;
             //$('#tab-' + 0).addClass('active');
             $('#profile_summary').css('display', 'block');
+            $('#edu-sec').css('display','none')
 
         }
 
-
     });
-
-
 
 });

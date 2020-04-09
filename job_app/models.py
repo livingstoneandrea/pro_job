@@ -66,22 +66,6 @@ class Profile(models.Model):
     Preference = models.ForeignKey(Preference, on_delete=models.CASCADE, default=None,null=True)
     file_upload = models.ForeignKey(File_uploaded, on_delete=models.CASCADE, default=None,null=True)
 
-    # def save(self,*args,**kwargs):
-    #     try:
-    #         self.education_level.exist()
-    #     except:
-    #         self.education_level = Education_level.objects.
-    #
-    #     super().save(*args,**kwargs)
-
-
     def __str__(self):
         return self.user.username
 
-# @receiver(post_save, sender=User)
-# def update_profile_signal(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#         print("profile created")
-#     instance.profile.save()
-#     print("profile updated")

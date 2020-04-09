@@ -4,29 +4,27 @@
 {%block main_site%}
 
 
- <section class="grid-12 layout-center">
-    <div class="grid-parent v-h_center vert-alignC max_width" style="background: lightyellow">
-
-
-   <div class="grid-12 max_width">
+ <section class="grid-12 layout-center" style="background: url('/static/images/Bullseye-Gradient.svg')no-repeat;background-size: cover;">
+    <div class="grid-parent v-h_center vert-alignC max_width" style=" background:url('/static/images/Bullseye-Gradient.svg')no-repeat;background-size: cover;">
+   <div class="grid-12 max_width box_vertPad2">
      <article class="grid-parent box_topPad5">
        <section class="grid-12 grid-parent">
           <div class="grid-6">
-            <a href="">{{user.username}} </a><span>signed in</span>
+            <a href="" class="text_7 text_c-orange" style="text-transform:capitalize;">{{user.username}} </a><span style="font-size:12px;color: darkslategrey">signed in</span>
             |
             <a href="">Account options</a>
           </div>
           <div class="grid-6">
-            | <a href="{%url 'logout'%}">sign out</a>
+            | <a href="{%url 'logout'%}" class="text_c-red">sign out</a>
           </div>
        
        </section>
         <section class="grid-parent">
         <article class="grid-12 layout-center">
-          <div class="" id="" style="border-bottom: 2px solid #a3a3a3;height: 34px;line-height: normal;padding: 0 0 0 18px ;box-sizing: border-box;">
+          <div class="" id="profile_switch" >
             <span class="" style="background-position: top right;background-repeat: no-repeat;background-color: transparent;white-space:nowrap;padding: 5px 2px 4px 0;display: inline-block;vertical-align: bottom; cursor: pointer;">
               <span class="" style="background-repeat: no-repeat;background-position: left top;padding: 6px 2px 6px 22px;"></span>
-               <span class="text_7">Candidate Profile</span>
+               <span class="text_7 text_c-red">Candidate Profile</span>
             </span>
             <span class="">
               <span class=""></span>
@@ -35,27 +33,29 @@
           </div>
         </article>
         <article class="grid-12">
-          <div class="">
-             <span class=""><span class="">My Profile</span></span>
+          <div class="margin-1">
+             <span class="box_horizontalPad2"><span class="">My Profile</span></span>
              <span class=""><span class="">Personal Setting</span></span>
           </div>
         </article>
       </section>
        <section class="grid-12 box_topMargin-1">
-          <article class="grid-12 grid-parent max_width box_vertPad2 bg-light-gr ">
+          <article class="grid-12 grid-parent max_width box_vertPad2 ">
              <div class="grid-6">
               <h3>General Profile</h3>
              </div>
              <div class="grid-6">
-               <p>showing step <span class="text_c-green">1</span> of<span class="text_c-red"> 7</span></p>
+               <p>showing step <span class="text_c-green">1</span> of<span class="text_c-green"> 7</span></p>
              </div>
-             <article class="grid-12">
+             <article class="grid-12 box_margTop2" style="background: #efefef; z-index: 1;border: 0.6px solid #f1f1f1;box-shadow: 1px 2px 2px 0px #f1f1f1">
                <section class="grid-parent">
-                 <div class="grid-2 box_vertPad2 ">
-                  <a href="javascript:void(0)" id="personal-details">personal info</a>
+                 <div class="grid-2 box_vertPad2 " >
+                   <a href="javascript:void(0)" id="personal-details" class="grid-12">personal info</a>
+                   <span class="fas fa-user "></span>
                  </div>
                  <div class="grid-2 box_vertPad2">
                   <a href="javascript:void(0)" id="edu-details">Education</a>
+                     <span class="fas fa-laptop"></span>
                  </div>
                  <div class="grid-2 box_vertPad2">
                   <a href="javascript:void(0)" id="emp-details">Employment info</a>
@@ -74,6 +74,7 @@
           </article>
        </section>
        <section class="box_vertPad2 grid-12 layout-center" id="edu-sec">
+          <div class="grid-parent v-h_center grid-7">
             <article class="grid-6 v-h_center bg-light_blue tab active" style="border-radius:4px;" id="tab-0">
                 <h3 class="text_c-white">personal information</h3>
               
@@ -201,89 +202,86 @@
                 </section>
                </form> 
             </article>
+          </div>
        </section>
-       <section  class="grid-12 vert-marginTop-2 " style="display:none; " id="profile_summary">
-         <div class=" grid-12 grid-parent v-h_center max_width">
-         <article class="grid-12 grid-parent ">
-           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
-            <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Personal information</span>| <a href="" class="text_c-white modal_trigger" id="personal_info">Edit</a></p>
-              <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">First name </span> <span>{{user.first_name}} {{user.last_name}}</span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Last name </span><span>{{user.last_name}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Email address </span><span>{{user.email}}</span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Phone contact </span><span>{{user_info.phone_number}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">location </span><span>{{user_info.location}}</span> </li>
-              </ul>
-            </article>
-           </div> 
-         </article>
-         
-         <article class="grid-12 grid-parent ">
-           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
-            <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Education Details</span>| <a href="" class="text_c-white modal_trigger" id="edu_info">Edit</a></p>
-              <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Certification </span> <span>{{edu_details.certification}} </span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Issuing Organization </span><span>{{edu_details.issuing_org}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Identification/id </span><span>{{edu_details.identification_number}}</span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Issue Date </span><span>{{edu_details.issue_date}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Expiration Date </span><span>{{edu_details.expiration_date}}</span> </li>
-              
-              </ul>
-            </article>
-           </div> 
-         </article>
+       <section  class="grid-12 box_margTop2" style="display:none; " id="profile_summary">
+          <div class="grid-12 grid-parent v-h_center  max_width">
+             <article class="grid-12 grid-parent box_margBot2">
+               <div class="bg-light-gr v-h_center" >
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Personal information</span>| <a href="" class="text_c-white modal_trigger" id="personal_info">Edit</a></p>
+                  <ul>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">First name </span> <span>{{user.first_name}} {{user.last_name}}</span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Last name </span><span>{{user.last_name}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Email address </span><span>{{user.email}}</span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Phone contact </span><span>{{user_info.phone_number}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">location </span><span>{{user_info.location}}</span> </li>
+                  </ul>
+                </article>
+               </div>
+             </article>
 
-         
-       
-         <article class="grid-12 grid-parent ">
-           
-           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
-            <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Employement information</span>| <a href="" class="text_c-white modal_trigger" id="emp_info">Edit</a></p>
-              <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Employer </span> <span>{{emp_details.employer}}</span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Job Function </span><span>{{emp_details.job_function}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Job status </span><span>{{emp_details.current_job_status}}</span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Start Date </span><span>{{emp_details.start_date}}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">End Date </span><span>{{emp_details.end_date}}</span> </li>
-              
-              </ul>
-            </article>
-           </div> 
-         </article>
+             <article class="grid-12 grid-parent box_margBot2">
+               <div class="bg-light-gr v-h_center" >
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Education Details</span>| <a href="" class="text_c-white modal_trigger" id="edu_info">Edit</a></p>
+                  <ul>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Certification </span> <span>{{edu_details.certification}} </span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Issuing Organization </span><span>{{edu_details.issuing_org}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Identification/id </span><span>{{edu_details.identification_number}}</span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Issue Date </span><span>{{edu_details.issue_date}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Expiration Date </span><span>{{edu_details.expiration_date}}</span> </li>
 
-         <article class="grid-12 grid-parent">
-           
-           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
-            <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Preference</span>| <a href="" class="text_c-white modal_trigger" id="pref">Edit</a></p>
-              <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Job Field preference</span> <span>{{preference.job_field_pref }} </span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Location Preference </span><span>{{preference.location_pref}}</span> </li>
-               
-              </ul>
-            </article>
-           </div> 
-         </article>
-         <article class="grid-12 grid-parent">
-           <div class="grid-6 bg-light-gr box_margBot2" style="max-width:60%;">
-            <article class="grid-12">
-              <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Files uploaded</span>| <a href="" class="text_c-white modal_trigger" id="file_upload">Edit</a></p>
-              <ul>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">File name</span> <span>{{file.file_name }} </span></li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">submitted_date </span><span>{{file.submitted_date }}</span> </li>
-               <li class="grid-12"><span class="text_7" style="margin-right:4em">Comments </span><span>{{file.comments }}</span> </li>
+                  </ul>
+                </article>
+               </div>
+             </article>
 
-              </ul>
-            </article>
-           </div> 
-         </article>
-        </div>
+             <article class="grid-12 grid-parent box_margBot2 ">
+               <div class="bg-light-gr v-h_center" >
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Employement information</span>| <a href="" class="text_c-white modal_trigger" id="emp_info">Edit</a></p>
+                  <ul>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Employer </span> <span>{{emp_details.employer}}</span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Job Function </span><span>{{emp_details.job_function}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Job status </span><span>{{emp_details.current_job_status}}</span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Start Date </span><span>{{emp_details.start_date}}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">End Date </span><span>{{emp_details.end_date}}</span> </li>
+
+                  </ul>
+                </article>
+               </div>
+             </article>
+
+             <article class="grid-12 grid-parent box_margBot2">
+               <div class=" bg-light-gr v-h_center">
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Preference</span>| <a href="" class="text_c-white modal_trigger" id="pref">Edit</a></p>
+                  <ul>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">Job Field preference</span> <span>{{preference.job_field_pref }} </span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Location Preference </span><span>{{preference.location_pref}}</span> </li>
+
+                  </ul>
+                </article>
+               </div>
+             </article>
+             <article class="grid-12 grid-parent box_margBot2">
+               <div class="bg-light-gr v-h_center" >
+                <article class="grid-12">
+                  <p class="bg-light_blue box_vertPad1" style="border-radius:4px 4px 0 0;"><span class="text_c-white margin-1">Files uploaded</span>| <a href="" class="text_c-white modal_trigger" id="file_upload">Edit</a></p>
+                  <ul>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em;text-align:left">File name</span> <span>{{file.file_name }} </span></li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">submitted_date </span><span>{{file.submitted_date }}</span> </li>
+                   <li class="grid-12"><span class="text_7" style="margin-right:4em">Comments </span><span>{{file.comments }}</span> </li>
+
+                  </ul>
+                </article>
+               </div>
+             </article>
+         </div>
       </section>
 
-    <script>
+      <script>
               var node_list = document.querySelectorAll('.modal_trigger');
               var url="";
               node_list.forEach(element => {
@@ -295,6 +293,7 @@
                       url = "EditUser_details/"+{{user.id}}
                       console.log("user id:"+{{user.id}})
                       $('#modal-1').toggleClass("md-show");
+
                       
                   } else if (element.id == "edu_info") {
                       console.log(element.id + " clicked");
@@ -496,8 +495,6 @@
     </div>
  </section>
 
-
- 
  <div class="md-overlay"></div>
  {%block scripts%}
 

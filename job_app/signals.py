@@ -11,4 +11,3 @@ def update_profile_signal(sender, instance, created, **kwargs):
         print("profile created")
     instance.profile.save()
     print("profile updated")
-    

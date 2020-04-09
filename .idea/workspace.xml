@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a45de4f-2bf3-4d6d-8e81-07fda1b4f18e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_app/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/job_app/application_guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/job_app/application_guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/job_app/application_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/job_app/application_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/job_app/main_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/job_app/main_site.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +126,11 @@
       <workItem from="1585920550716" duration="2226000" />
       <workItem from="1586009970349" duration="10680000" />
       <workItem from="1586073948407" duration="21410000" />
-      <workItem from="1586155618717" duration="13625000" />
+      <workItem from="1586155618717" duration="18410000" />
+      <workItem from="1586184382521" duration="2776000" />
+      <workItem from="1586334405179" duration="712000" />
+      <workItem from="1586348656795" duration="8626000" />
+      <workItem from="1586436340647" duration="9294000" />
     </task>
     <servers />
   </component>
@@ -165,10 +178,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="257" height="520" key="HiddenNamespacesPopup/0.27.1366.741@0.27.1366.741" timestamp="1585828772651" />
-    <state x="343" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1586155622269">
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1586436755439">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="343" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1586155622269" />
+    <state x="343" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1586436755439" />
     <state x="346" y="89" key="search.everywhere.popup" timestamp="1585828652764">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

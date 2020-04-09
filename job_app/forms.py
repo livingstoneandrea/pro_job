@@ -18,8 +18,6 @@ class SignUpForm(UserCreationForm):
 class Profile_InfoForm(ModelForm):
     class Meta:
         model = Profile
-       # fields = '__all__'
-        #('first_name', 'last_name', 'email', 'location', 'phone_number')
         exclude =['user','signup_confirmation','employment_details','education_level','Preference','file_upload']
 
 
@@ -35,13 +33,12 @@ class Employement_DetailForm(ModelForm):
         fields = '__all__'
 
 
-
 class Preference_Form(ModelForm):
     class Meta:
         model = Preference
         fields = '__all__'
 class File_UploadForm(ModelForm):
-    #File_uploaded
+
     class Meta:
         model = File_uploaded
         fields = '__all__'
